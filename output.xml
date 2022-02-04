@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.7.5 on win32)" generated="20220204 11:46:49.143" rpa="true" schemaversion="2">
+<suite id="s1" name="Tasks" source="c:\Users\RuiCruz\Documents\exam\tasks.robot">
+<test id="s1-t1" name="Order robots from RobotSpareBin Industries Inc">
+<kw name="Open the robot order website">
+<kw name="Get Secret" library="RPA.Robocorp.Vault">
+<var>${Url}</var>
+<arg>Url</arg>
+<doc>Read a secret from the configured source, e.g. Robocorp Vault,
+and return it as a ``Secret`` object.</doc>
+<msg timestamp="20220204 11:46:52.250" level="INFO">Protecting keyword: RPA.Robocorp.Vault.Get Secret</msg>
+<msg timestamp="20220204 11:46:52.257" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="FAIL" starttime="20220204 11:46:52.249" endtime="20220204 11:46:52.256"/>
+</kw>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>url=${Url}[url]</arg>
+<arg>maximized=True</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<status status="NOT RUN" starttime="20220204 11:46:52.258" endtime="20220204 11:46:52.259"/>
+</kw>
+<status status="FAIL" starttime="20220204 11:46:52.246" endtime="20220204 11:46:52.262"/>
+</kw>
+<kw name="Get orders">
+<var>${orders}</var>
+<doc>Dawnload the csv file and return the table</doc>
+<status status="NOT RUN" starttime="20220204 11:46:52.264" endtime="20220204 11:46:52.265"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${row}">${row}</var>
+<kw name="Log" library="BuiltIn">
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220204 11:46:52.268" endtime="20220204 11:46:52.270"/>
+</kw>
+<kw name="Close the annoying modal">
+<status status="NOT RUN" starttime="20220204 11:46:52.271" endtime="20220204 11:46:52.271"/>
+</kw>
+<kw name="Fill the form">
+<arg>${row}</arg>
+<doc>recive the information about each order and fill the form</doc>
+<status status="NOT RUN" starttime="20220204 11:46:52.272" endtime="20220204 11:46:52.272"/>
+</kw>
+<kw name="Preview the robot">
+<status status="NOT RUN" starttime="20220204 11:46:52.273" endtime="20220204 11:46:52.274"/>
+</kw>
+<kw name="Submit the order">
+<status status="NOT RUN" starttime="20220204 11:46:52.274" endtime="20220204 11:46:52.275"/>
+</kw>
+<kw name="Store the receipt as a PDF file">
+<var>${pdf}</var>
+<arg>${row}[Order number]</arg>
+<status status="NOT RUN" starttime="20220204 11:46:52.276" endtime="20220204 11:46:52.277"/>
+</kw>
+<kw name="Take a screenshot of the robot">
+<var>${screenshot}</var>
+<arg>${row}[Order number]</arg>
+<status status="NOT RUN" starttime="20220204 11:46:52.278" endtime="20220204 11:46:52.279"/>
+</kw>
+<kw name="Embed the robot screenshot to the receipt PDF file">
+<arg>${screenshot}</arg>
+<arg>${pdf}</arg>
+<status status="NOT RUN" starttime="20220204 11:46:52.280" endtime="20220204 11:46:52.280"/>
+</kw>
+<kw name="Go to order another robot">
+<status status="NOT RUN" starttime="20220204 11:46:52.281" endtime="20220204 11:46:52.282"/>
+</kw>
+<status status="NOT RUN" starttime="20220204 11:46:52.267" endtime="20220204 11:46:52.282"/>
+</iter>
+<status status="NOT RUN" starttime="20220204 11:46:52.266" endtime="20220204 11:46:52.283"/>
+</for>
+<kw name="Create a ZIP file of the receipts">
+<status status="NOT RUN" starttime="20220204 11:46:52.285" endtime="20220204 11:46:52.286"/>
+</kw>
+<status status="FAIL" starttime="20220204 11:46:52.242" endtime="20220204 11:46:52.288">KeyError: 'Missing required environment variable: RC_API_SECRET_HOST'</status>
+</test>
+<doc>Orders robots from RobotSpareBin Industries Inc.</doc>
+<status status="FAIL" starttime="20220204 11:46:49.148" endtime="20220204 11:46:52.292"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
